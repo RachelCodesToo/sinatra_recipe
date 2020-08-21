@@ -1,6 +1,6 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 
-    get '/recipe' do 
+    get '/recipes' do 
         erb :'recipe/index'
     end 
 
