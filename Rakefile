@@ -5,7 +5,7 @@ require 'sinatra/activerecord/rake'
 
 
 task :env do 
-    require './confog/environment.rb'
+    require './config/environment.rb'
 end 
 
 task :console => :env do
