@@ -8,7 +8,7 @@ task :env do
     require './confog/environment.rb'
 end 
 
-task :consolde => :env do
+task :console => :env do
     Pry.start
 end 
 
