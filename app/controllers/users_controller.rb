@@ -4,6 +4,11 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end 
 
-    
+    post '/signup' do 
+      @user = User.create(params)
+      erb :'users/show'
+    end 
+
+
 
 end 
