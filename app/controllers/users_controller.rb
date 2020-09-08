@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     post '/signup' do 
       @user = User.create(params)
-      erb :'users/show'
+      erb :'users/index'
     end 
 
     get '/login' do 
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            erb :index
+            erb :'users/index'
         else 
             redirect '/login'
         end 
