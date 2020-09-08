@@ -4,5 +4,6 @@ class UsersController < ApplicationController
         erb :'user/index'
     end 
 
+    
 
 end 

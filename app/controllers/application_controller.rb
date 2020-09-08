@@ -8,9 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    #redirect to sign up page or change the welcome page to have the links for siging up or signing in
-    # erb :'recipes/index'
-    erb :welcome
+   redirect 'user/signup'
   end
 
 end
