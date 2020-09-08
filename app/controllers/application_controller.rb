@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-   redirect 'user/signup'
+   redirect '/signup'
   end
 
 end
