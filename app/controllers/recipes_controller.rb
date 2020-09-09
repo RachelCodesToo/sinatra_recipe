@@ -15,9 +15,12 @@ class RecipesController < ApplicationController
 
 
     post '/recipes' do 
-        recipe = Recipe.new(params)
+        recipe = current_user.recipes.build(params)
+        recipe.save
+        redirect '/recipes'
     end 
 
 
     
 end 
+ 
