@@ -2,4 +2,6 @@
 
 <% @recipes.each do |recipe| %>
    <p> <%=recipe.recipe_name %> by <%= recipe.user.username %></p>
-    <% end %>
+
+   <p><a href="/recipes/new ">Create a Recipe.</a></p>
+<% end %>

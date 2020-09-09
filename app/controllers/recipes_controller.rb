@@ -9,5 +9,15 @@ class RecipesController < ApplicationController
         end     
     end 
 
+    get '/recipes/new' do 
+        erb :'recipes/new'
+    end 
+
+
+    post '/recipes' do 
+        recipe = Recipe.new(params)
+    end 
+
+
     
 end 
