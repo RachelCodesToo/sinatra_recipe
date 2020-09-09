@@ -5,8 +5,13 @@ class UsersController < ApplicationController
     end 
 
     post '/signup' do 
-      @user = User.create(params)
-      redirect '/login'
+        if params[:username].empty? || params[:email].empty?
+            erb :'users/signup'
+        else    
+            user = User.create(params)
+            session[:user_id] = user.id
+            redirect '/recipes'
+        end
     end 
 
     get '/login' do 
@@ -24,6 +29,9 @@ class UsersController < ApplicationController
 
     end 
 
-
+    get '/logout' do 
+        session.clear
+        redirect '/login'
+    end 
 
 end 
