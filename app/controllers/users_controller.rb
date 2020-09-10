@@ -9,8 +9,8 @@ class UsersController < ApplicationController
             erb :'users/signup'
         else    
             user = User.create(params)
-            session[:user_id] = @user.id
-            redirect '/login'
+            session[:user_id] = user.id
+            redirect '/recipes'
         end
     end 
 

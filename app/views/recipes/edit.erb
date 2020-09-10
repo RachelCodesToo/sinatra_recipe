@@ -3,6 +3,7 @@
 <form action="/recipes/<%= @recipe.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <input type="text" name="recipe_name" value="<%= @recipe.recipe_name %>">
+    <textarea name="how_to_make" placeholder="Tell us how you make it!"></textarea>
     <input type="text" name="how_to_make" value="<%= @recipe.how_to_make %>">
     <input type="submit">
 </form>  

@@ -34,9 +34,8 @@ class RecipesController < ApplicationController
 
     patch '/recipes/:id' do 
        get_recipe
-       if @recipe.user == current_user
-            #recipe.update(recipe_name: params[:recipe_name])
-            if @recipe.update(how_to_make: params[:how_to_make])
+       if @recipe.user == current_user #this handles a non authorization failure
+            if @recipe.update(recipe_name: params[:recipe_name], how_to_make: params[:how_to_make])
                 redirect '/recipes'    
             else 
                 erb :'recipes/edit'
@@ -48,7 +47,7 @@ class RecipesController < ApplicationController
     end  
 
     delete '/recipes/:id' do 
-        get_recipe
+        get_recipe 
         if @recipe.user == current_user
             @recipe.delete
         end 
