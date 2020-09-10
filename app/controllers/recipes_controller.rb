@@ -15,12 +15,26 @@ class RecipesController < ApplicationController
 
 
     post '/recipes' do 
-        recipe = current_user.recipes.build(params)
-        recipe.save
+        @recipe = current_user.recipes.build(params)
+        if @recipe.save
+            redirect '/recipes'
+        else 
+            erb :'recipes/new'
+        end 
+    end 
+
+    get '/recipes/:id/edit' do 
+        @recipes = Recipe.find_by_id(params[:id])
+        erb :'recipes/edit' 
+    end 
+
+    post '/recipes/:id' do 
+        @recipe = Recipe.find_by_id(params[:id])
+        @recipe.update(recipe_name: params[:recipe_name])
+        @recipe.update(how_to_make: params[:how_to_make])
         redirect '/recipes'
     end 
 
 
-    
 end 
  
