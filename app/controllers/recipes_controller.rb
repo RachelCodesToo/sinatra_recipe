@@ -24,17 +24,40 @@ class RecipesController < ApplicationController
     end 
 
     get '/recipes/:id/edit' do 
-        @recipes = Recipe.find_by_id(params[:id])
-        erb :'recipes/edit' 
+        get_recipe
+         if @recipe.user == current_user
+            erb :'recipes/edit' 
+         else
+            redirect '/recipes'
+         end 
     end 
 
     patch '/recipes/:id' do 
-        @recipe = Recipe.find_by_id(params[:id])
-        @recipe.update(recipe_name: params[:recipe_name])
-        # @recipe.update(how_to_make: params[:how_to_make])
-        redirect '/recipes'
+       get_recipe
+       if @recipe.user == current_user
+            #recipe.update(recipe_name: params[:recipe_name])
+            if @recipe.update(how_to_make: params[:how_to_make])
+                redirect '/recipes'    
+            else 
+                erb :'recipes/edit'
+            end 
+        else
+            redirect '/recipes'
+       end 
+        
     end  
 
+    delete '/recipes/:id' do 
+        get_recipe
+        if @recipe.user == current_user
+            @recipe.delete
+        end 
+            redirect '/recipes'
+    end
+
+    def get_recipe
+        @recipe = Recipe.find_by_id(params[:id])
+    end 
 
 end 
  

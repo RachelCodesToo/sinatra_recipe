@@ -81,6 +81,12 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  .recipe{
+    padding: 10px;
+    border: solid 2px grey;
+
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -112,4 +118,6 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+ 
 }
