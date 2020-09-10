@@ -28,12 +28,12 @@ class RecipesController < ApplicationController
         erb :'recipes/edit' 
     end 
 
-    post '/recipes/:id' do 
+    patch '/recipes/:id' do 
         @recipe = Recipe.find_by_id(params[:id])
         @recipe.update(recipe_name: params[:recipe_name])
-        @recipe.update(how_to_make: params[:how_to_make])
+        # @recipe.update(how_to_make: params[:how_to_make])
         redirect '/recipes'
-    end 
+    end  
 
 
 end 
