@@ -26,4 +26,4 @@ The Sinatra app is available as open source under the terms of the [MIT License]
 
 ## Code of Conduct
 
-Everyone interacting in the sinatra_recipe project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the MIT
+Everyone interacting in the sinatra_recipe project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the Code of Conduct
